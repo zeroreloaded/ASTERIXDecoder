@@ -1,0 +1,4 @@
+# Created at 2022-07-12T09:25:22.461
+Boot Manifest-JAR contains absolute paths in classpath 'D:\project\SWIM\develop\ASTERIXDecoder\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

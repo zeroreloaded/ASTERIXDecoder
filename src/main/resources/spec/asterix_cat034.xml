@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category no="34" ver="1.17">
+    <dataitem name="I034/010" frn="1" format="fixed" length="2">
+      <title>Data Source Identifier</title>
+      <definition>Identification of the system sending the data</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>SAC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Area Code</desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>SIC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Identification code</desc>
+      </structure>
+    </dataitem>    
+
+    <dataitem name="I034/000" frn="2" format="fixed" length="1">
+      <title>Message Type</title>
+      <definition>Message Type</definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>MESSAGETYPE</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I034/030" frn="3" format="fixed" length="3">
+      <title> Time Of Day</title>
+      <definition>Absolute time stamping expressed as UTC</definition>
+      <structure octet="1" frombit="24" tobit="1">
+        <name>TOD</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.0078125</scale>
+        <desc></desc>
+      </structure> 
+    </dataitem>  
+    
+    <dataitem name="I034/020" frn="4" format="fixed" length="1">
+      <title>Sector Number</title>
+      <definition>Sector Number</definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>SECNO</name>
+        <format>uint</format>
+        <unit>degree</unit>
+        <scale>1.41</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I034/041" frn="5" format="fixed" length="2">
+      <title>Antenna Rotation Speed</title>
+      <definition>Antenna Rotation Speed</definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>ANTSPEED</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.0078125</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I034/050" frn="6" format="compound" length="1">
+      <title>System Configuration and Status</title>
+      <definition>System Configuration and Status</definition>
+      <structure></structure> 
+    </dataitem>  
+    
+    <dataitem name="I034/050-1" frn="61" format="fixed" length="1">
+      <title>Common elements of a System</title>
+      <definition>COM</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>NOGO</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>System is released for operational use</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Operational use of System is inhibited</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>RDPC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>RDPC-1 selected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>RDPC-2 selected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="6">    
+        <name>RDPR</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default situation</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reset of RDPC</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>OVL RDP</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default, no overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload in RDP</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>OVL XMT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default, no overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload in transmission subsystem</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>MSC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Monitoring system connected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Monitoring system disconnected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>TSV</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>valid</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>invalid</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/050-4" frn="64" format="fixed" length="1">
+      <title>PSR</title>
+      <definition>Specific Status information for a PSR sensor</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>ANT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>antenna 1</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>antenna 2</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="6">    
+        <name>CH-AB</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No channel selected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Channel A only selected</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Channel B only selected</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Channel A and B selected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>OVL</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>MSC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Monitoring system connected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Monitoring system disconnected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/050-5" frn="65" format="fixed" length="1">
+      <title>SSR</title>
+      <definition>Specific Status information for a SSR sensor</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>ANT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>antenna 1</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>antenna 2</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="6">    
+        <name>CH-AB</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No channel selected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Channel A only selected</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Channel B only selected</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Channel A and B selected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>OVL</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>MSC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Monitoring system connected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Monitoring system disconnected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/050-6" frn="66" format="fixed" length="2">
+      <title>MDS</title>
+      <definition>Specific Status information for a Mode S sensor</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>ANT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>antenna 1</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>antenna 2</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="15" tobit="14">    
+        <name>CH-AB</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No channel selected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Channel A only selected</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Channel B only selected</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Channel A and B selected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="13" tobit="13">    
+        <name>OVL SUR</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="12" tobit="12">    
+        <name>MSC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Monitoring system connected</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Monitoring system disconnected</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="11" tobit="11">    
+        <name>SCF</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Channel A in use</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Channel B in use</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="10" tobit="10">    
+        <name>DLF</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Channel A in use</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Channel B in use</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="9" tobit="9">    
+        <name>OVL SCF</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="2" frombit="8" tobit="8">    
+        <name>OVL DLF</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No overload</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Overload</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/060" frn="7" format="compound" length="1">
+      <title>System Processing Mode</title>
+      <definition>System Processing Mode</definition>
+      <structure></structure> 
+    </dataitem>  
+    
+    <dataitem name="I034/060-1" frn="71" format="fixed" length="1">
+      <title>Common elements of a System</title>
+      <definition>COM</definition>
+      <structure octet="1" frombit="7" tobit="5">    
+        <name>RED-RDP</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No reduction active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reduction step 1 active</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Reduction step 2 active</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Reduction step 3 active</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Reduction step 4 active</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Reduction step 5 active</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Reduction step 6 active</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Reduction step 7 active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="2">    
+        <name>RED-XMT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No reduction active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reduction step 1 active</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Reduction step 2 active</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Reduction step 3 active</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Reduction step 4 active</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Reduction step 5 active</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Reduction step 6 active</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Reduction step 7 active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/060-4" frn="74" format="fixed" length="1">
+      <title>Specific Processing Mode information for a PSR sensor</title>
+      <definition>PSR</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>POL</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Linear polarization</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Circular polarization</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="5">    
+        <name>RED-RAD</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No reduction active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reduction step 1 active</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Reduction step 2 active</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Reduction step 3 active</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Reduction step 4 active</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Reduction step 5 active</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Reduction step 6 active</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Reduction step 7 active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="3">    
+        <name>STC</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>STC Map-1</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>STC Map-2</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>STC Map-3</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>STC Map-4</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/060-5" frn="75" format="fixed" length="1">
+      <title>Specific Processing Mode information for a SSR sensor</title>
+      <definition>SSR</definition>
+      <structure octet="1" frombit="8" tobit="6">    
+        <name>RED-RAD</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No reduction active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reduction step 1 active</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Reduction step 2 active</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Reduction step 3 active</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Reduction step 4 active</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Reduction step 5 active</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Reduction step 6 active</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Reduction step 7 active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/060-6" frn="76" format="fixed" length="1">
+      <title>Specific Processing Mode information for a MODE S sensor</title>
+      <definition>SSR</definition>
+      <structure octet="1" frombit="8" tobit="6">    
+        <name>RED-RAD</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No reduction active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Reduction step 1 active</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Reduction step 2 active</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Reduction step 3 active</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Reduction step 4 active</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Reduction step 5 active</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Reduction step 6 active</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Reduction step 7 active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>CLU</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Autonomous</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Not autonomous</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I034/070" frn="8" format="repetitive" length="3">
+      <title>Message Count Values</title>
+      <definition>Message Count values</definition>
+      <structure octet="1" frombit="24" tobit="17">
+        <name>REP</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc>Number of counters following</desc>
+      </structure>
+      <structure octet="2" frombit="16" tobit="12">
+        <name>TYP</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No detection(number of misses)</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Single SSR target Reports</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Single SSR target Reports(Non-Mode S)</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>SSR+PSR target Reports(Non-Mode S)</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Single All-Call target reports(Mode S)</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>single Roll-Call target Reports(Mode S)</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>All-Call + PSR(Mode S) target reports</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Roll-Call + PSR(Mode S) target Reports</value>
+                </entry>
+                <entry>
+                    <key>8</key>
+                    <value>Filter for Weather data</value>
+                </entry>
+                <entry>
+                    <key>9</key>
+                    <value>Filter for Jamming Strobe</value>
+                </entry>
+                <entry>
+                    <key>10</key>
+                    <value>Filter for PSR Data</value>
+                </entry>
+                <entry>
+                    <key>11</key>
+                    <value>Filter for SSR/Mode S data</value>
+                </entry>
+                <entry>
+                    <key>12</key>
+                    <value>Filter for SSR/Mode S + PSR data</value>
+                </entry>
+                <entry>
+                    <key>13</key>
+                    <value>Filter for Enhanced Surveillance data</value>
+                </entry>
+                <entry>
+                    <key>14</key>
+                    <value>Filter for PSR + Enhanced Surveillance data</value>
+                </entry>
+                <entry>
+                    <key>15</key>
+                    <value>Filter for PSR + Enhanced Surveillance + SSR/Mode S data not in Area of Prime interest</value>
+                </entry>
+                <entry>
+                    <key>16</key>
+                    <value>Filter for PSR + Enhanced Surveillance + all SSR/Mode S data</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I034/100" frn="9" format="fixed" length="8">
+      <title>Generic Polar Window</title>
+      <definition>Geographical window defined in polar co-ordinates</definition>
+      <structure octet="1" frombit="64" tobit="49">    
+        <name>RHO-START</name>
+        <format>uint</format>
+        <unit>NM</unit>
+        <scale>0.00390625</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="48" tobit="33">    
+        <name>RHO-END</name>
+        <format>uint</format>
+        <unit>NM</unit>
+        <scale>0.00390625</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="32" tobit="17">    
+        <name>THETA-START</name>
+        <format>uint</format>
+        <unit>NM</unit>
+        <scale>0.00390625</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="16" tobit="1">    
+        <name>THETA-END</name>
+        <format>uint</format>
+        <unit>NM</unit>
+        <scale>0.00390625</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    <dataitem name="I034/110" frn="10" format="fixed" length="1">
+      <title>Data Filter</title>
+      <definition>Data Filter, which allows suppression of individual data types</definition>
+      <structure octet="1" frombit="64" tobit="49">    
+        <name>TYP</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Invalid value</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Filter for Weather data</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Filter for Jamming Strobe</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Filter for PSR data</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Filter for SSR/Mode S data</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Filter for SSR/Mode S + PSR data</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Enhanced Surveillance data</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Filter for PSR+Enhanced Surveillance data</value>
+                </entry>
+                <entry>
+                    <key>8</key>
+                    <value>Filter for PSR+Enhanced Surveillance+SSR/Mode S data not in Area of Prime Interest</value>
+                </entry>
+                <entry>
+                    <key>9</key>
+                    <value> Filter for PSR+Enhanced Surveillance + all SSR/Mode S data </value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I034/120" frn="11" format="fixed" length="8">
+      <title>3D-Position Of Data Source</title>
+      <definition>3D-Position of Data Source in WGS 84 Co-ordinates</definition>
+      <structure octet="1" frombit="64" tobit="49">    
+        <name>Height_WGS84</name>
+        <format>uint</format>
+        <unit>M</unit>
+        <scale>1</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="48" tobit="25">    
+        <name>Latitude_WGS84</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00002145</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="24" tobit="1">    
+        <name>Longitude_WGS84</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00002145</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I034/090" frn="12" format="fixed" length="2">
+      <title>Collimation Error</title>
+      <definition>Averaged difference in range and in azimuth for the primary target position</definition>
+      <structure octet="1" frombit="16" tobit="9">    
+        <name>RANGEERROR</name>
+        <format>int</format>
+        <unit>NM</unit>
+        <scale>0.0078125</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">    
+        <name>AZIMUTHERROR</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.022</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+</category>

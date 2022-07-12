@@ -1,0 +1,2943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category no="62" ver="1.17">
+    <dataitem name="I062/010" frn="1" format="fixed" length="2">
+      <title>Data Source Identifier</title>
+      <definition>Identification of the system sending the data</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>SAC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Area Code</desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>SIC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Identification code</desc>
+      </structure>
+    </dataitem>    
+
+    <dataitem name="I062/015" frn="3" format="fixed" length="1">
+      <title>Service Identification</title>
+      <definition>Identification of the service provided to one or more users</definition>
+      <structure octet="1" frombit="8" tobit="9">
+        <name>ServiceIdentification</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>the service identification is allocated by the system</desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/070" frn="4" format="fixed" length="3">
+      <title> Time Of Track Information</title>
+      <definition>Absolute time stamping of the information provided in the track message, in the form of elapsed time since last midnight, expressed as UTC
+      </definition>
+      <structure octet="1" frombit="24" tobit="1">
+        <name>TOD</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.0078125</scale>
+        <desc></desc>
+      </structure> 
+    </dataitem>  
+    
+    <dataitem name="I062/105" frn="5" format="fixed" length="8">
+      <title> Calculated Position In WGS-84 Co-ordinates</title>
+      <definition>Calculated Position in WGS-84</definition>
+      <structure octet="1" frombit="64" tobit="33">
+        <name>Latitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00000536441802978515625</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="2" frombit="32" tobit="1">
+        <name>Longitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00000536441802978515625</scale>
+        <desc></desc>
+      </structure>   
+    </dataitem>  
+    
+    <dataitem name="I062/100" frn="6" format="fixed" length="6">
+      <title>Position in Cartesian Co-ordinates</title>
+      <definition>Position of a target in Cartesian co-ordinates, in two's complement form</definition>
+      <structure octet="1" frombit="48" tobit="25">
+        <name>X-Component</name>
+        <format>int</format>
+        <unit>m</unit>
+        <scale>0.5</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="24" tobit="1">
+        <name>Y-Component</name>
+        <format>int</format>
+        <unit>m</unit>
+        <scale>0.5</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/185" frn="7" format="fixed" length="4">
+      <title> Calculated Track Velocity (Cartesian)</title>
+      <definition>Calculated track velocity expressed in Cartesian co-ordinat</definition>
+      <structure octet="1" frombit="32" tobit="17">
+        <name>Vx</name>
+        <format>int</format>
+        <unit>m/s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="2" frombit="16" tobit="1">
+        <name>Vy</name>
+        <format>int</format>
+        <unit>m/s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/210" frn="8" format="fixed" length="2">
+      <title> Calculated Acceleration (Cartesian)</title>
+      <definition>Calculated Acceleration of the target expressed in Cartesian co-ordinates</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>Ax</name>
+        <format>int</format>
+        <unit></unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>Ay</name>
+        <format>int</format>
+        <unit></unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/060" frn="9" format="fixed" length="2">
+      <title>Track Mode 3/A Code</title>
+      <definition>Mode-3/A code converted into octal representation</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>MODE3A-V</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Code validated</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Code not validated</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="15" tobit="15">    
+        <name>MODE3A-G</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Garbled code</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="14" tobit="14">    
+        <name>MODE3A-CHANGE</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No Change</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Mode-3/A has changed</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="12" tobit="1">
+        <name>Mode3A-Reply</name>
+        <format>octal</format>
+        <unit></unit>
+        <scale></scale>
+        <desc>Mode-3/A reply in octal representation</desc>
+      </structure> 
+    </dataitem>  
+    
+    <dataitem name="I062/245" frn="10" format="fixed" length="7">
+      <title>Target Identification</title>
+      <definition>Target (aircraft or vehicle) identification in 8 characters</definition>
+      <structure octet="1" frombit="56" tobit="55">    
+        <name>STI</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Callsign or registration downlinked from transponder</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Callsign not downlinked from transponder</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Registration not downlinked from transponder</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>invalid</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="48" tobit="1">
+        <name>TargetIdentification</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc>ICAO Annex.10 Volume 1, Part 1, section 3.8.2.9 for coding rules</desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/380" frn="11" format="compound" length="1">
+      <title>Aircraft Derived Data</title>
+      <definition>Data derived directly by the aircraft</definition>
+      <structure></structure>
+    </dataitem>  
+    
+    <dataitem name="I062/380-1" frn="1101" format="fixed" length="3">
+      <title>TargetAddress</title>
+      <definition>TargetAddress</definition>
+      <structure octet="1" frombit="24" tobit="1">    
+        <name>TargetAddress</name>
+        <format>string</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-2" frn="1102" format="fixed" length="6">
+      <title>TargetIdentification</title>
+      <definition>TargetIdentification</definition>
+      <structure octet="1" frombit="48" tobit="1">    
+        <name>TargetIdentification</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-3" frn="1103" format="fixed" length="2">
+      <title>MagneticHeading</title>
+      <definition>MagneticHeading</definition>
+      <structure octet="1" frombit="16" tobit="1">    
+        <name>MagneticHeading</name>
+        <format>uint</format>
+        <unit>degree</unit>
+        <scale>0.0055</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-4" frn="1104" format="fixed" length="2">
+      <title>Airspeed</title>
+      <definition>Airspeed</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>IM</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>IAS</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>MACH</value>
+                </entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="15" tobit="1">    
+        <name>Airspeed</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-5" frn="1105" format="fixed" length="2">
+      <title>TrueAirspeed</title>
+      <definition>TrueAirspeed</definition>
+      <structure octet="1" frombit="16" tobit="1">    
+        <name>TrueAirspeed</name>
+        <format>uint</format>
+        <unit>knot</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-6" frn="1106" format="fixed" length="2">
+      <title>SelectedAltitude</title>
+      <definition>SelectedAltitude</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>SAS</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No source information provided </value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>source information provided</value>
+                </entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="15" tobit="14">    
+        <name>Source</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Unknown</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Aircraft Altitude</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>FCU/MCP Selected Altitude</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>FMS Selected Altitude</value>
+                </entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="13" tobit="1">    
+        <name>Altitude</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-7" frn="1107" format="fixed" length="2">
+      <title>Final State Selected Altitude</title>
+      <definition>Final State Selected Altitude</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>Manage Vertical Mode</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Not Active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Active</value>
+                </entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="15" tobit="15">    
+        <name>Altitude Hold</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Not Active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="14" tobit="14">    
+        <name>Approach Mode</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Not Active</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Active</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="13" tobit="1">    
+        <name>Altitude</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-8" frn="1108" format="fixed" length="1">
+      <title>Trajectory Intent Status</title>
+      <definition>Trajectory Intent Status</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>NAV</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Trajectory Intent Data is available for this aircraft </value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Trajectory Intent Data is not available for this aircraft </value>
+                </entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>NVB</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Trajectory Intent Data is valid</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Trajectory Intent Data is not valid </value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-9" frn="1109" format="repetitive" length="16">
+      <title>Trajectory Intent Data</title>
+      <definition></definition>
+      <structure octet="1" frombit="128" tobit="121">
+        <name>REP</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="120" tobit="120">
+        <name>TCA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>TCP number available</value></entry> 
+                <entry><key>1</key><value>TCP number not available</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="119" tobit="119">
+        <name>NC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>TCP compliance</value></entry> 
+                <entry><key>1</key><value>TCP non-compliance</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="118" tobit="113">
+        <name>TCPNumber</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="112" tobit="97">
+        <name>Trajectory-altitude</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>10</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="96" tobit="73">
+        <name>Trajectory-latitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.000021457672</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="72" tobit="49">
+        <name>Trajectory-longitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.000021457672</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="48" tobit="45">
+        <name>PointType</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Unknown</value></entry> 
+                <entry><key>1</key><value>Fly by waypoint(LT)</value></entry> 
+                <entry><key>2</key><value>Fly over waypoint(LT)</value></entry> 
+                <entry><key>3</key><value>Hold pattern(LT)</value></entry> 
+                <entry><key>4</key><value>Procedure hold(LT)</value></entry> 
+                <entry><key>5</key><value>Procedure turn(LT)</value></entry> 
+                <entry><key>6</key><value>RF leg(LT)</value></entry>        
+                <entry><key>7</key><value>Top of climb(VT)</value></entry> 
+                <entry><key>8</key><value>Top of descent(VT)</value></entry> 
+                <entry><key>9</key><value>Start of level(VT)</value></entry> 
+                <entry><key>10</key><value>Cross-over altitude(VT)</value></entry> 
+                <entry><key>11</key><value>Transition altitude(VT)</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="44" tobit="43">
+        <name>TD</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>N/A</value></entry> 
+                <entry><key>1</key><value>Turn right</value></entry> 
+                <entry><key>2</key><value>Turn left</value></entry> 
+                <entry><key>3</key><value>No turn</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="42" tobit="42">
+        <name>TRA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>TTR not available</value></entry> 
+                <entry><key>1</key><value>TTR available</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="41" tobit="41">
+        <name>TOA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>TOV available</value></entry> 
+                <entry><key>1</key><value>TOV not available</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="40" tobit="17">
+        <name>TOV</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>TTR</name>
+        <format>uint</format>
+        <unit>Nm</unit>
+        <scale>0.01</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/380-10" frn="1110" format="fixed" length="2">
+      <title>Communications/ACAS capability and flight status reported by Mode-S</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="14">
+        <name>COM</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No communications capability</value></entry> 
+                <entry><key>1</key><value>Comm. A and Comm. B capability</value></entry>
+                <entry><key>2</key><value>Comm. A, Comm B and Uplink ELM</value></entry> 
+                <entry><key>3</key><value>Comm. A, Comm B, Uplink ELM and Downlink ELM</value></entry> 
+                <entry><key>4</key><value>Level 5 Transponder capability</value></entry>  
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="13" tobit="11">
+        <name>STAT</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No alert, no SPI, aircraft airborne</value></entry> 
+                <entry><key>1</key><value>No alert, no SPI, aircraft on ground</value></entry>
+                <entry><key>2</key><value>Alert, no SPI, aircraft airborne</value></entry> 
+                <entry><key>3</key><value>Alert, no SPI, aircraft on ground</value></entry> 
+                <entry><key>4</key><value>Alert, SPI, aircraft airborne or on ground</value></entry>  
+                <entry><key>5</key><value>No alert, SPI, aircraft airborne or on ground</value></entry>  
+                <entry><key>6</key><value>Not defined</value></entry>  
+                <entry><key>7</key><value>Unknown or not yet extracted</value></entry>  
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="8" tobit="8">
+        <name>SSC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No</value></entry> 
+                <entry><key>1</key><value>Yes</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="7">
+        <name>ARC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>100 ft resolution</value></entry> 
+                <entry><key>1</key><value>25 ft resolution</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="6">
+        <name>AIC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No</value></entry> 
+                <entry><key>1</key><value>Yes</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-11" frn="1111" format="fixed" length="2">
+      <title>Status reported by ADS-B</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="15">
+        <name>AC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Unknown</value></entry> 
+                <entry><key>1</key><value>ACAS not operational</value></entry>
+                <entry><key>2</key><value>ACAS operational</value></entry> 
+                <entry><key>3</key><value>invalid</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="14" tobit="13">
+        <name>MN</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Unknown</value></entry> 
+                <entry><key>1</key><value>No alert, no SPI, aircraft on ground</value></entry>
+                <entry><key>2</key><value>Nultiple navigational aids not operating</value></entry> 
+                <entry><key>3</key><value>Multiple navigational aids operating</value></entry> 
+                <entry><key>4</key><value>invalid</value></entry>  
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="12" tobit="11">
+        <name>DC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>unknown</value></entry> 
+                <entry><key>1</key><value>Differntial correction</value></entry>
+                <entry><key>1</key><value>No Differntial correction</value></entry>
+                <entry><key>1</key><value>invalid</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="10" tobit="10">
+        <name>GBS</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Transponder Ground Bit not set or unknown</value></entry> 
+                <entry><key>1</key><value>Transponder Ground Bit set</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="1">
+        <name>AIC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No emergency</value></entry> 
+                <entry><key>1</key><value>General emergency</value></entry>
+                <entry><key>2</key><value>Lifeguard/medical</value></entry>
+                <entry><key>3</key><value>Minimum fuel</value></entry>
+                <entry><key>4</key><value>No communications</value></entry>
+                <entry><key>5</key><value>Unlawful interference</value></entry>
+                <entry><key>6</key><value>Downed aircraft</value></entry>
+                <entry><key>7</key><value>Unknown</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-12" frn="1112" format="fixed" length="7">
+      <title>ACAS Resolution Advisory Report</title>
+      <definition></definition>
+      <structure octet="1" frombit="56" tobit="1">
+        <name>ACASRA</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-13" frn="1113" format="fixed" length="2">
+      <title>Barometric Vertical Rate</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>BarometricVR</name>
+        <format>int</format>
+        <unit>feet/minute</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-14" frn="1114" format="fixed" length="2">
+      <title>Geometric Vertical Rate</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>GeometricVR</name>
+        <format>int</format>
+        <unit>feet/minute</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-15" frn="1115" format="fixed" length="2">
+      <title>Roll Angle</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>RollAngle</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.01</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-16" frn="1116" format="fixed" length="2">
+      <title>Track Angle Rate</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="15">
+        <name>TrackAngleRate</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Not available</value></entry> 
+                <entry><key>1</key><value>Left</value></entry>
+                <entry><key>2</key><value>Right</value></entry>
+                <entry><key>3</key><value>Straight</value></entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="8" tobit="2">
+        <name>RateOfTurn</name>
+        <format>int</format>
+        <unit>degree/s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-17" frn="1117" format="fixed" length="2">
+      <title>Track Angle</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>TrackAngle</name>
+        <format>uint</format>
+        <unit>degree</unit>
+        <scale>0.0055</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-18" frn="1118" format="fixed" length="2">
+      <title>Ground Speed</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>TrackAngle</name>
+        <format>uint</format>
+        <unit>knot</unit>
+        <scale>0.22</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-19" frn="1119" format="fixed" length="1">
+      <title>Velocity Uncertainty</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>VelocityUncertainty</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-20" frn="1120" format="fixed" length="8">
+      <title>Met Data</title>
+      <definition></definition>
+      <structure octet="1" frombit="64" tobit="64">
+        <name>WS</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Not valid Wind Speed</value></entry> 
+                <entry><key>1</key><value>Valid Wind Speed</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="63" tobit="63">
+        <name>WD</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Not valid Wind Direction</value></entry> 
+                <entry><key>1</key><value>Valid Wind Direction</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="62" tobit="62">
+        <name>TMP</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Not valid Temperature</value></entry> 
+                <entry><key>1</key><value>Valid Temperature</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="61" tobit="61">
+        <name>TRB</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Not valid Turbulence</value></entry> 
+                <entry><key>1</key><value>Valid Turbulence</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="56" tobit="41">
+        <name>WindSpeed</name>
+        <format>uint</format>
+        <unit>knot</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="40" tobit="25">
+        <name>WindDirection</name>
+        <format>uint</format>
+        <unit>degree</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="24" tobit="9">
+        <name>Temperature</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>Turbulence</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-21" frn="1121" format="fixed" length="1">
+      <title>Emitter Category</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="8">
+        <name>ECAT</name>
+        <codes>
+            <messageMap>
+                <entry><key>1</key><value>light aircraft under 700 kg</value></entry> 
+                <entry><key>3</key><value>medium aircraft between 7000 kg and 136000 kg</value></entry> 
+                <entry><key>5</key><value>heavy aircraft under 136000 kg</value></entry> 
+                <entry><key>6</key><value>highly manoeuvrable and high speed</value></entry> 
+                <entry><key>10</key><value>rotocraft</value></entry> 
+                <entry><key>11</key><value>glider/sailplane</value></entry> 
+                <entry><key>12</key><value>lighter-than-air</value></entry> 
+                <entry><key>13</key><value>unmanned aerial vehicle</value></entry> 
+                <entry><key>14</key><value>space/transatmospheric vehicle</value></entry> 
+                <entry><key>15</key><value>ultralight/handglider/paraglider</value></entry> 
+                <entry><key>16</key><value>parachutist/skydiver</value></entry> 
+                <entry><key>20</key><value>surface emergency vehicle</value></entry> 
+                <entry><key>21</key><value>surface service vehicle</value></entry> 
+                <entry><key>22</key><value>fixed ground or tethered obstruction</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-22" frn="1122" format="fixed" length="6">
+      <title>Position</title>
+      <definition></definition>
+      <structure octet="1" frombit="48" tobit="25">
+        <name>DD-Latitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00002145767211</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="24" tobit="1">
+        <name>DD-Longitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00002145767211</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-23" frn="1123" format="fixed" length="2">
+      <title>Geometric Altitude</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>DD-Altitude</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-24" frn="1124" format="fixed" length="1">
+      <title>Potition Uncertainty</title>
+      <definition></definition>
+      <structure octet="1" frombit="4" tobit="1">
+        <name>PUN</name>
+        <format>int</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-25" frn="1125" format="repetitive" length="9">
+      <title>Mode S MB Data</title>
+      <definition></definition>
+      <structure octet="1" frombit="72" tobit="65">
+        <name>REP</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="64" tobit="9">
+        <name>MB-MSG</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="5">
+        <name>BDS1</name>
+        <format>string</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="4" tobit="1">
+        <name>BDS2</name>
+        <format>string</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-26" frn="1126" format="fixed" length="2">
+      <title>Indicated Speed</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>IndicatedSpeed</name>
+        <format>uint</format>
+        <unit>kt</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-27" frn="1127" format="fixed" length="2">
+      <title>Mach Number</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>Mach</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>0.008</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/380-28" frn="1128" format="fixed" length="2">
+      <title>Barometric Pressure Setting</title>
+      <definition></definition>
+      <structure octet="1" frombit="12" tobit="1">
+        <name>BPS</name>
+        <format>uint</format>
+        <unit>mb</unit>
+        <scale>0.1</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/040" frn="12" format="fixed" length="2">
+      <title>Track Number</title>
+      <definition>Identification of a track </definition>
+      <structure octet="1" frombit="16" tobit="1">    
+        <name>TrackNumber</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/080" frn="13" format="variable" length="1">
+      <title>Track Status</title>
+      <definition>Status of a track</definition>
+      <structure></structure>
+    </dataitem>
+
+    <dataitem name="I062/080-1" frn="1301" format="fixed" length="1">
+      <title>Track Status #1</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>MON</name>
+          <codes><messageMap>
+            <entry><key>0</key><value>Multisensor track</value></entry>        
+            <entry><key>1</key><value>Monosensor track</value></entry> 
+          </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>SPI</name>
+          <codes><messageMap>
+            <entry><key>0</key><value>default value</value></entry>        
+            <entry><key>1</key><value>SPI present in the last report received from a sensor capable of decoding this data</value></entry> 
+          </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="6">    
+        <name>MRH</name>
+        <codes><messageMap>
+            <entry><key>0</key><value>Barometric altitude (Mode C) more reliable</value></entry>        
+            <entry><key>1</key><value>Geometric altitude more reliable</value></entry>
+        </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="3">    
+        <name>SRC</name>
+        <codes><messageMap>
+            <entry><key>0</key><value>no source</value></entry>        
+            <entry><key>1</key><value>GNSS</value></entry>
+            <entry><key>2</key><value>3D radar</value></entry>
+            <entry><key>3</key><value>triangulation</value></entry>
+            <entry><key>4</key><value>height from coverage</value></entry>
+            <entry><key>5</key><value>speed look-up table</value></entry>
+            <entry><key>6</key><value>default height</value></entry>
+            <entry><key>7</key><value>multilateration</value></entry>
+          </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>CNF</name>
+        <codes><messageMap>
+            <entry><key>0</key><value>confirmed track</value></entry>        
+            <entry><key>1</key><value>tentative track</value></entry> 
+        </messageMap></codes>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/080-2" frn="1302" format="fixed" length="1">
+      <title>Track Status #2</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>SIM</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Actual track</value></entry>        
+          <entry><key>1</key><value>Simulated track</value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>TSE</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>last message transmitted to the user for the track </value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="6" tobit="6">    
+        <name>TSB</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>first message transmitted to the user for the track </value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>FPC</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Not flight-plan correlated</value></entry>        
+          <entry><key>1</key><value>flight-plan correlated </value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>AFF</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>ADS-B data inconsistent with other surveillance information</value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>STP</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Slave Track Promotion</value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>KOS</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Complementary service used</value></entry>        
+          <entry><key>1</key><value>Background service used</value></entry> 
+        </messageMap></codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/080-3" frn="1303" format="fixed" length="1">
+      <title>Track Status #3</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>AMA</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>track not resulting from amalgamation process</value></entry>        
+          <entry><key>1</key><value>track resulting from amalgamation process </value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="7" tobit="6">    
+        <name>MD4</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>No Mode 4 interrogation</value></entry>        
+          <entry><key>1</key><value>Friendly target</value></entry>
+          <entry><key>2</key><value>Unknown Target</value></entry>
+          <entry><key>3</key><value>No reply</value></entry> 
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>ME</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Military Emergency present in the last report received from a sensor capable of decoding this data</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>MI</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Military Identification present in the last report received from a sensor capable of decoding this data</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="3" tobit="2">    
+        <name>MD5</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>No Mode 5 interrogation</value></entry>                        
+          <entry><key>1</key><value>Friendly target</value></entry>
+          <entry><key>2</key><value>Unknown target</value></entry>
+          <entry><key>3</key><value>No reply</value></entry>
+        </messageMap></codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/080-4" frn="1304" format="fixed" length="1">
+      <title>Track Status #4</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>CST</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Age of the last received track update is higher than system dependent threshold (coasting) </value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>PSR</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Age of the last received PSR track update is higher than system dependent threshold</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="6" tobit="6">    
+        <name>SSR</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Age of the last received SSR track update is higher than system dependent threshold</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>MDS</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Age of the last received Mode S track update is higher than system dependent threshold </value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>ADS</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Age of the last received ADS-B track update is higher than system dependent threshold </value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>SUC</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>       
+          <entry><key>1</key><value> Special Used Code (Mode A codes to be defined in the system to mark a track with special interest) </value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>AAC</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value> Assigned Mode A Code Conflict (same discrete Mode A Code assigned to another track) </value></entry>
+        </messageMap></codes>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/080-5" frn="1305" format="fixed" length="1">
+      <title>Track Status #5</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="7">    
+        <name>SDS</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Combined</value></entry>        
+          <entry><key>1</key><value>Co-operative only</value></entry>
+          <entry><key>2</key><value>Non-cooperative only</value></entry>
+          <entry><key>3</key><value>Not defined</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="6" tobit="4">    
+        <name>EMS</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>No emergency</value></entry>        
+          <entry><key>1</key><value>General emergency</value></entry>
+          <entry><key>2</key><value>Lifeguard/medical</value></entry>
+          <entry><key>3</key><value>Minimum fuel</value></entry>
+          <entry><key>4</key><value>No communications</value></entry>
+          <entry><key>5</key><value>Unlawful interference</value></entry>
+          <entry><key>6</key><value>Downed Aircraft</value></entry>
+          <entry><key>7</key><value>Undefined</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>PFT</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>No indication</value></entry>        
+          <entry><key>1</key><value>Potential False Track Indication</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>FPLT</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Track created/updated with FPL data</value></entry>
+        </messageMap></codes>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/080-6" frn="1306" format="fixed" length="1">
+      <title>Track Status #6</title>
+      <definition>Status of a track</definition>
+      <structure octet="1" frombit="8" tobit="8">    
+        <name>DUPT</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Default value</value></entry>        
+          <entry><key>1</key><value>Duplicaate Mode 3/A code</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="7" tobit="7">    
+        <name>DUPF</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Default value</value></entry>        
+          <entry><key>1</key><value>Duplicate Flight Plan</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="6" tobit="6">    
+        <name>DUPM</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>Default value</value></entry>        
+          <entry><key>1</key><value>Duplicate Flight Plan due to manual correlation</value></entry>
+        </messageMap></codes>
+      </structure>
+      
+      <structure octet="1" frombit="5" tobit="5">    
+        <name>SFC</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Surface target</value></entry>
+        </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">    
+        <name>IDD</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>No indication</value></entry>        
+          <entry><key>1</key><value>Duplicate Flight-ID</value></entry>
+        </messageMap></codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>IEC</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>default value</value></entry>        
+          <entry><key>1</key><value>Inconsistent Emergency Code</value></entry>
+        </messageMap></codes>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290" frn="14" format="compound" length="1">
+      <title>System Track Update Ages</title>
+      <definition>Ages of the last plot/local track/target report update for each sensor type.</definition>
+      <structure></structure>
+    </dataitem>
+
+    <dataitem name="I062/290-1" frn="1401" format="fixed" length="1">
+      <title>Track Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>TRK</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+
+    <dataitem name="I062/290-2" frn="1402" format="fixed" length="1">
+      <title>PSR Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>PSR</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/290-3" frn="1403" format="fixed" length="1">
+      <title>SSR Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>SSR</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-4" frn="1404" format="fixed" length="1">
+      <title>Mode S Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>MDS</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-5" frn="1405" format="fixed" length="2">
+      <title>ADS-C Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>ADS</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-6" frn="1406" format="fixed" length="1">
+      <title>ES Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>ES</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-7" frn="1407" format="fixed" length="1">
+      <title>VDL Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>VDL</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-8" frn="1408" format="fixed" length="1">
+      <title>UAT Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>UAT</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-9" frn="1409" format="fixed" length="1">
+      <title>Loop Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>LOP</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/290-10" frn="1410" format="fixed" length="1">
+      <title>Multilateration Age</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>MLT</name>
+        <format>uint</format>
+        <unit>s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/200" frn="15" format="fixed" length="1">
+      <title> Mode of Movement</title>
+      <definition>Calculated Mode of Movement of a target.</definition>
+      <structure octet="1" frombit="8" tobit="7">    
+        <name>TRANS</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>constant course</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>right turn</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>left turn</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>undetermined</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="5">    
+        <name>LONG</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>constant GroundSpeed</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Increasing GroundSpeed</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Decreasing GroundSpeed</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>undetermined</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="3">    
+        <name>VERT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Level</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Climb</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Descent</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>undetermined</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">    
+        <name>ADF</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No altitude discrepancy</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Altitude discrepancy</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/295" frn="16" format="compound" length="1">
+      <title>Track Data Ages</title>
+      <definition>Ages of the data provided</definition>
+      <structure></structure>
+    </dataitem>  
+    
+    <dataitem name="I062/295-1" frn="1601" format="fixed" length="1">
+      <title>Measured Flight Level Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MFL</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-2" frn="1602" format="fixed" length="1">
+      <title>Mode 1 Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MD1</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-3" frn="1603" format="fixed" length="1">
+      <title>Mode 2 Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MD2</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-4" frn="1605" format="fixed" length="1">
+      <title>Mode 3/A Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MDA</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-5" frn="1606" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MD4</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-6" frn="1607" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MD5</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-7" frn="1607" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MHG</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-8" frn="1608" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>IAS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-9" frn="1609" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>TAS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-10" frn="1610" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>SAL</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-11" frn="1611" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>FSS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-12" frn="1612" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>TID</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-13" frn="1613" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>COM</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-14" frn="1614" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>SAB</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-15" frn="1615" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>ACS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-16" frn="1616" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>BVR</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-17" frn="1617" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>GVR</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-18" frn="1618" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>RAN</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-19" frn="1619" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>TAR</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-20" frn="1620" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>TAN</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-21" frn="1621" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>GSP</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-22" frn="1622" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>VUN</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-23" frn="1623" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MET</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-24" frn="16242" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>EMC</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-25" frn="1625" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>POS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-26" frn="1626" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>GAL</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-27" frn="1627" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>PUN</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-28" frn="1628" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MB</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-29" frn="1629" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>IAR</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-30" frn="1630" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>MAC</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/295-31" frn="1631" format="fixed" length="1">
+      <title>Age</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1"><name>BPS</name><format>uint</format><unit>s</unit><scale>0.25</scale><desc></desc></structure>
+    </dataitem> 
+
+    <dataitem name="I062/136" frn="17" format="fixed" length="2">
+      <title> Measured Flight Level</title>
+      <definition>Last valid and credible flight level used to update the track</definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>FlightLevel</name>
+        <format>int</format>
+        <unit>FL</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/130" frn="18" format="fixed" length="2">
+      <title>Calculated Track Geometric Altitude</title>
+      <definition>Vertical distance between the target and the projection of its position on the earth’s ellipsoid, as defined by WGS84</definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>ALTITUDE</name>
+        <format>int</format>
+        <unit>FL</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/135" frn="19" format="fixed" length="2">
+      <title> Calculated Track Barometric Altitude</title>
+      <definition>Calculated Barometric Altitude of the track</definition>
+      <structure octet="1" frombit="16" tobit="16">    
+        <name>QNH</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No QNH correction applied</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>QNH correction applied</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="2" frombit="15" tobit="1">
+        <name>Altitude</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/220" frn="20" format="fixed" length="2">
+      <title>Calculated Rate Of Climb/Descent</title>
+      <definition>Calculated rate of Climb/Descent of an aircraft </definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>Rate of Climb/Descent</name>
+        <format>int</format>
+        <unit>feet/mimute</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/390" frn="21" format="compound" length="1">
+      <title>Flight Plan Related Data</title>
+      <definition>All flight plan related information, provided by ground-based systems</definition>
+      <structure></structure>
+    </dataitem>  
+    
+    <dataitem name="I062/390-1" frn="2101" format="fixed" length="2">
+      <title>FPPS Identification Tag</title>
+      <definition>FPPS Identification Tag</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>SAC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Area Code</desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>SIC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Identification code</desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/390-2" frn="2102" format="fixed" length="7">
+      <title>Callsign</title>
+      <definition>Callsign</definition>
+      <structure octet="1" frombit="56" tobit="1">
+        <name>callsign</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc>Callsign</desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/390-3" frn="2103" format="fixed" length="4">
+      <title>IFPS_FLIGHT_ID</title>
+      <definition>IFPS_FLIGHT_ID</definition>
+      <structure octet="1" frombit="32" tobit="31">
+        <name>TYP</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Plan Number</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Unit 1 internal flight number</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Unit 2 internal flight number</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Unit 3 internal flight number</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="27" tobit="1">
+        <name>NBR</name>
+        <format>uint</format>
+        <unit>m</unit>
+        <scale>1</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-4" frn="2104" format="fixed" length="1">
+      <title>Flight Category</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="7">
+        <name>GAT/OAT</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Unknown</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>General Air Traffic</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Operational Air Traffic</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Not applicable</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="5">
+        <name>FR1/FR2</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Instrument Flight Rules</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Visual Flight Rules</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Not applicable</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>controlled visual Flight Rules</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="3">
+        <name>RVSM</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Unknown</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Approved</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Exempt</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Not Approved</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">
+        <name>HPR</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Normal Priority Flight</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>High Priority Flight</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-5" frn="2105" format="fixed" length="4">
+      <title>Type of Aircraft</title>
+      <definition></definition>
+      <structure octet="1" frombit="32" tobit="1">
+        <name>TypeOfAircraft</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-6" frn="2106" format="fixed" length="1">
+      <title>Wake Turbulence Category</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>WTC</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/390-7" frn="2107" format="fixed" length="4">
+      <title>Depature Airport</title>
+      <definition></definition>
+      <structure octet="1" frombit="32" tobit="1">
+        <name>DEP</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-8" frn="2108" format="fixed" length="4">
+      <title>Destination Airport</title>
+      <definition></definition>
+      <structure octet="1" frombit="32" tobit="1">
+        <name>ARR</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-9" frn="2109" format="fixed" length="3">
+      <title>Runway Designation</title>
+      <definition></definition>
+      <structure octet="1" frombit="24" tobit="17">
+        <name>NU1</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>NU2</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>LTR</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-10" frn="2110" format="fixed" length="2">
+      <title>Current Cleared Flight Level</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>CFL</name>
+        <format>uint</format>
+        <unit>FL</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-11" frn="2111" format="fixed" length="2">
+      <title>Current Control Position</title>
+      <definition></definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>Centre</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>Position</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-12" frn="2112" format="repetitive" length="5">
+      <title>Time of Departure/Arrival</title>
+      <definition></definition>
+      <structure octet="1" frombit="40" tobit="33">
+        <name>REP</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="32" tobit="28">
+        <name>TYP-1</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Scheduled off-block time</value></entry> 
+                <entry><key>1</key><value>Estimated off-block time</value></entry> 
+                <entry><key>2</key><value>Estimated take-off time</value></entry> 
+                <entry><key>3</key><value>Actual off-block time</value></entry> 
+                <entry><key>4</key><value>Predicted time at runway hold</value></entry> 
+                <entry><key>5</key><value>Actual time at runway hold</value></entry> 
+                <entry><key>6</key><value>Actual line-up time</value></entry>        
+                <entry><key>7</key><value>Estimated time of arrival</value></entry> 
+                <entry><key>8</key><value>Estimated time of arrival</value></entry> 
+                <entry><key>9</key><value>Predicted landing time</value></entry> 
+                <entry><key>10</key><value>Actual landing time</value></entry> 
+                <entry><key>11</key><value>Actual time off runway</value></entry> 
+                <entry><key>12</key><value>Predicted time to gate</value></entry> 
+                <entry><key>13</key><value>Actual on-block time</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="27" tobit="26">
+        <name>DAY</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="21" tobit="17">
+        <name>HOR</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="14" tobit="9">
+        <name>MIN</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="6" tobit="1">
+        <name>SEC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-13" frn="2113" format="fixed" length="6">
+      <title>Aircraft Stand</title>
+      <definition></definition>
+      <structure octet="1" frombit="48" tobit="1">
+        <name>AircraftStand</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-14" frn="2114" format="fixed" length="1">
+      <title>Stand Status</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="7">
+        <name>EMP</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Empty</value></entry> 
+                <entry><key>1</key><value>Occupied</value></entry> 
+                <entry><key>2</key><value>Unknown</value></entry> 
+                <entry><key>3</key><value>Invalid</value></entry>        
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="5">
+        <name>AVL</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Available</value></entry> 
+                <entry><key>1</key><value>Not Available</value></entry> 
+                <entry><key>2</key><value>Unknown</value></entry> 
+                <entry><key>3</key><value>Invalid</value></entry>        
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-15" frn="2115" format="fixed" length="7">
+      <title>Standard Instrument Departure</title>
+      <definition></definition>
+      <structure octet="1" frombit="56" tobit="1">
+        <name>StandardInstrumentDeparture</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-16" frn="2116" format="fixed" length="7">
+      <title>Standard Instrument Arrival</title>
+      <definition></definition>
+      <structure octet="1" frombit="56" tobit="1">
+        <name>StandardInstrumentArrival</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-17" frn="2117" format="fixed" length="2">
+      <title>Pre-Emergency Mode 3/A</title>
+      <definition></definition>
+      <structure octet="1" frombit="13" tobit="13">
+        <name>VA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No Valid Mode 3/A available</value></entry> 
+                <entry><key>1</key><value>Valid Mode 3/A available</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="12" tobit="1">
+        <name>Mode-3/A</name>
+        <format>octal</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/390-18" frn="2118" format="fixed" length="7">
+      <title>Pre-Emergency Callsign</title>
+      <definition></definition>
+      <structure octet="1" frombit="13" tobit="13">
+        <name>VA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No Valid Mode 3/A available</value></entry> 
+                <entry><key>1</key><value>Valid Mode 3/A available</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="56" tobit="1">
+        <name>PreEmergencyCallsign</name>
+        <format>icaocode</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/270" frn="22" format="variable" length="1">
+      <title> Target Size and Orientation</title>
+      <definition>Target size defined as length and width of the detected target and orientation</definition>
+      <structure></structure>
+    </dataitem>
+
+    <dataitem name="I062/270-1" frn="2201" format="fixed" length="1">
+      <structure octet="1" frombit="8" tobit="2">
+        <name>LENGTH</name>
+        <format>uint</format>
+        <unit>m</unit>
+        <scale>1</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/270-2" frn="2202" format="fixed" length="1">
+      <title> Target Size and Orientation</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="2">
+        <name>ORIENTATION</name>
+        <format>uint</format>
+        <unit>degrees</unit>
+        <scale>2.81</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/270-3" frn="2203" format="fixed" length="1">
+      <title> Target Size and Orientation</title>
+      <definition></definition>
+      <structure octet="1" frombit="8" tobit="2">
+        <name>WIDTH</name>
+        <format>uint</format>
+        <unit>m</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/300" frn="23" format="fixed" length="1">
+      <title>Vehicle Fleet Identification</title>
+      <definition>Vehicle fleet identification number</definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>VFI</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Unknown</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>ATC equipment maintenance</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Airport maintenance </value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>Fire</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Bird scarer</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Snow plough</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>Runway sweeper</value>
+                </entry>
+                <entry>
+                    <key>7</key>
+                    <value>Emergency</value>
+                </entry>
+                <entry>
+                    <key>8</key>
+                    <value>Police</value>
+                </entry>
+                <entry>
+                    <key>9</key>
+                    <value>Bus</value>
+                </entry>
+                <entry>
+                    <key>10</key>
+                    <value>Tug (push/tow)</value>
+                </entry>
+                <entry>
+                    <key>11</key>
+                    <value>Grass cutter</value>
+                </entry>
+                <entry>
+                    <key>12</key>
+                    <value>Fuel</value>
+                </entry>
+                <entry>
+                    <key>13</key>
+                    <value>Baggage</value>
+                </entry>
+                <entry>
+                    <key>14</key>
+                    <value>Catering</value>
+                </entry>
+                <entry>
+                    <key>15</key>
+                    <value>Aircraft maintenance</value>
+                </entry>
+                <entry>
+                    <key>16</key>
+                    <value>Flyco (follow me)</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/110" frn="24" format="compound" length="1">
+      <title> Mode 5 Data reports and Extended Mode 1 Code</title>
+      <definition>Mode 5 Data reports and Extended Mode 1 Code</definition>
+      <structure></structure>
+    </dataitem>  
+
+    <dataitem name="I062/110-1" frn="2401" format="fixed" length="1">
+      <title>Mode 5 Summary</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="8">
+        <name>M5</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No Mode 5 interrogation</value></entry> 
+                <entry><key>1</key><value>Mode 5 interrogation</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="7" tobit="7">
+        <name>ID</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No authenticated Mode 5 ID reply</value></entry> 
+                <entry><key>1</key><value>Authenticated Mode 5 ID reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="6">
+        <name>DA</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>No authenticated Mode 5 Data reply or Report</value></entry> 
+                <entry><key>1</key><value>Authenticate Mode 5 Data reply or reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="5" tobit="5">
+        <name>M1</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Mode 1 code not present or not from Mode 5 reply</value></entry> 
+                <entry><key>1</key><value>Mode 1 code from Mode 5 reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">
+        <name>M2</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Mode 2 code not present or not from Mode 5 reply</value></entry> 
+                <entry><key>1</key><value>Mode 2 code from Mode 5 reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="3">
+        <name>M3</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Mode 3 code not present or not from Mode 5 reply</value></entry> 
+                <entry><key>1</key><value>Mode 3 code from Mode 5 reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">
+        <name>MC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>Mode C altitude not present or not from Mode 5 reply</value></entry> 
+                <entry><key>1</key><value>Mode C altitude from Mode 5 reply</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="1" tobit="1">
+        <name>X</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or not authenticated Data reply or report received</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem> 
+    
+    <dataitem name="I062/110-2" frn="2402" format="fixed" length="4">
+      <title>Mode 5 PIN/National Origin/Mission Code</title><definition></definition>
+      <structure octet="1" frombit="30" tobit="17">
+        <name>PIN</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="13" tobit="9">
+        <name>NAT</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="6" tobit="1">
+        <name>MIS</name>
+        <format>ascii</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/110-3" frn="2403" format="fixed" length="6">
+      <title>Mode 5 Reported Position</title><definition></definition>
+      <structure octet="1" frombit="48" tobit="25">
+        <name>Latitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.0000214576</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="24" tobit="1">
+        <name>Longitude</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.0000214576</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/110-4" frn="2404" format="fixed" length="2">
+      <title>Mode 5 GMSS-derived Altitude</title><definition></definition>
+      <structure octet="1" frombit="15" tobit="15">
+        <name>RES</name>
+        <codes><messageMap>
+          <entry><key>0</key><value>GA reported in 100 ft increments</value></entry>        
+          <entry><key>1</key><value>GA reported in 25 ft increments</value></entry>
+        </messageMap></codes>
+      </structure> 
+      <structure octet="1" frombit="14" tobit="1">
+        <name>GA</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/110-5" frn="2405" format="fixed" length="2">
+      <title>Extended Mode 1 Code in Octal representation</title><definition></definition>
+      <structure octet="1" frombit="12" tobit="1">
+        <name>EM1</name>
+        <format>octal</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/110-6" frn="2405" format="fixed" length="1">
+      <title>Time Offset for POS and GA</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>TOS</name>
+        <format>int</format>
+        <unit></unit>
+        <scale>0.0078125</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/110-7" frn="2407" format="fixed" length="1">
+      <title>X Pulse Presence</title><definition></definition>
+      <structure octet="1" frombit="5" tobit="5">
+        <name>X5</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or no authenticated Data reply or Report received</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">
+        <name>XC</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or no Mode C reply</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="3">
+        <name>X3</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or no Mode 3/A reply</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="2" tobit="2">
+        <name>X2</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or no Mode 2 reply</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="1" tobit="1">
+        <name>X1</name>
+        <codes>
+            <messageMap>
+                <entry><key>0</key><value>X-pulse set to zero or no Mode 1 reply</value></entry> 
+                <entry><key>1</key><value>X-pulse set to one</value></entry> 
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/120" frn="25" format="fixed" length="2">
+      <title>Track Mode 2 Code</title>
+      <definition>Mode 2 code associated to the track</definition>
+      <structure octet="1" frombit="12" tobit="1">
+        <name>MODE2CODE</name>
+        <format>octal</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>
+    </dataitem>  
+    
+    <dataitem name="I062/510" frn="26" format="extendible" length="1">
+      <title>Composed Track Number</title>
+      <definition>Identification of a system track</definition>
+      <structure></structure>
+    </dataitem>
+
+    <dataitem name="I062/510-1" frn="2601" format="fixed" length="3">
+      <structure octet="1" frombit="24" tobit="17">
+        <name>SYSTEM UNIT IDENTIFICATION</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure> 
+      <structure octet="1" frombit="16" tobit="2">
+        <name>SYSTEM TRACK NUMBER</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>        
+    </dataitem> 
+
+    <dataitem name="I062/510-2" frn="2602" format="fixed" length="3">
+      <title>Composed Track Number</title>
+      <definition>k</definition>
+      <structure octet="1" frombit="24" tobit="17">
+        <name>SYSTEM UNIT IDENTIFICATION</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure> 
+      <structure octet="1" frombit="16" tobit="2">
+        <name>SYSTEM TRACK NUMBER</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale></scale>
+        <desc></desc>
+      </structure>        
+    </dataitem>  
+    
+    <dataitem name="I062/500" frn="27" format="compound" length="1">
+      <title>Estimated Accuracies</title>
+      <definition>Overview of all important accuracies</definition>
+      <structure></structure>
+    </dataitem>
+    
+    <dataitem name="I062/500-1" frn="2701" format="fixed" length="4">
+      <title>Estimated Accuracy of Track position(Cartesian)</title><definition></definition>
+      <structure octet="1" frombit="32" tobit="17">
+        <name>APC-X</name>
+        <format>int</format>
+        <unit>m</unit>
+        <scale>0.5</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>APC-Y</name>
+        <format>int</format>
+        <unit>m</unit>
+        <scale>0.5</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+    <dataitem name="I062/500-2" frn="2702" format="fixed" length="2">
+      <title>XY covariance component</title><definition></definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>COV</name>
+        <format>int</format>
+        <unit>m</unit>
+        <scale>0.5</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+    <dataitem name="I062/500-3" frn="2703" format="fixed" length="4">
+      <title>Estimated Accuracy Of track position(WGS-84)</title><definition></definition>
+      <structure octet="1" frombit="32" tobit="17">
+        <name>APW-LAT</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00000536</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>APW-LON</name>
+        <format>int</format>
+        <unit>degree</unit>
+        <scale>0.00000536</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/500-4" frn="2704" format="fixed" length="1">
+      <title>Estimated Accuracy Of Calculated Track Geometric Altitude</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>AGA</name>
+        <format>int</format>
+        <unit>ft</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+    <dataitem name="I062/500-5" frn="2705" format="fixed" length="1">
+      <title>Estimated Accuracy Of Calculated Track Barometric Altitude</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>ABA</name>
+        <format>int</format>
+        <unit>FL</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/500-6" frn="2706" format="fixed" length="2">
+      <title>Estimated Accuracy Of Track Velocity(Cartesian)</title><definition></definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>ATV-X</name>
+        <format>int</format>
+        <unit>m/s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>ATV-Y</name>
+        <format>int</format>
+        <unit>m/s</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/500-7" frn="2707" format="fixed" length="2">
+      <title>Estimated Accuracy Of Acceleration(Cartesian)</title><definition></definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>AA-X</name>
+        <format>int</format>
+        <unit>m/ss</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>AA-Y</name>
+        <format>int</format>
+        <unit>m/ss</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem>
+
+    <dataitem name="I062/500-8" frn="2708" format="fixed" length="1">
+      <title>Estimated Accuracy Of Rate Of Climb/Descent</title><definition></definition>
+      <structure octet="1" frombit="8" tobit="1">
+        <name>ARC</name>
+        <format>int</format>
+        <unit>feet/minute</unit>
+        <scale>6.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+
+    <dataitem name="I062/340" frn="28" format="compound" length="1">
+      <title>Measured Information</title>
+      <definition>All measured data related to the last report used to update the track</definition>
+      <structure></structure>
+    </dataitem>
+    
+    <dataitem name="I062/340-1" frn="2801" format="fixed" length="2">
+      <title>Data Source Identifier</title>
+      <definition>Identification of the system sending the data</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>SAC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Area Code</desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>SIC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Identification code</desc>
+      </structure>
+    </dataitem>
+    
+    <dataitem name="I062/340-2" frn="2802" format="fixed" length="4">
+      <title>Measured Position in Polar Coordinates</title>
+      <definition>Measured Position in Polar Coordinates</definition>
+      <structure octet="1" frombit="32" tobit="17">
+        <name>RHO</name>
+        <format>uint</format>
+        <unit>NM</unit>
+        <scale>0.00390625</scale>
+        <desc></desc>
+      </structure> 
+      <structure octet="1" frombit="16" tobit="1">
+        <name>THETA</name>
+        <format>uint</format>
+        <unit>degree</unit>
+        <scale>0.0055</scale>
+        <desc></desc>
+      </structure> 
+    </dataitem> 
+    
+    <dataitem name="I062/340-3" frn="2803" format="fixed" length="2">
+      <title>Measured 3-D Height</title>
+      <definition>Measured 3-D Height</definition>
+      <structure octet="1" frombit="16" tobit="1">
+        <name>HEIGHT-3D</name>
+        <format>uint</format>
+        <unit>feet</unit>
+        <scale>25</scale>
+        <desc></desc>
+      </structure> 
+    </dataitem> 
+    
+    <dataitem name="I062/340-4" frn="2804" format="fixed" length="2">
+      <title>Last Measured Mode C Code</title>
+      <definition>Last Measured Mode C Code</definition>
+      <structure octet="1" frombit="8" tobit="8">
+        <name>LV</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Code Validated</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Code not validated</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure> 
+      <structure octet="1" frombit="7" tobit="7">
+        <name>LG</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Garbled Code</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="14" tobit="1">    
+        <name>LMODEC</name>
+        <format>int</format>
+        <unit>FL</unit>
+        <scale>0.25</scale>
+        <desc></desc>
+      </structure>
+    </dataitem> 
+    
+    <dataitem name="I062/340-5" frn="2805" format="fixed" length="2">
+      <title>Last Measured Mode 3/A Code</title>
+      <definition>Last Measured Mode 3/A Code</definition>
+      <structure octet="1" frombit="8" tobit="8">
+        <name>L3V</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Code Validated</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Code not validated</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure> 
+      <structure octet="1" frombit="7" tobit="7">
+        <name>L3G</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Default</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Garbled Code</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="6" tobit="6">
+        <name>L3L</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>MODE 3/A code as derived from the reply of the transponder</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Smoothed MODE 3/A code as provided by a sensor local tracker</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="12" tobit="1">    
+        <name>LMODE3A</name>
+        <format>octal</format>
+        <unit></unit>
+        <scale></scale>
+        <desc>Mode 3/A reply under the form of 4 digits in octal representation </desc>
+      </structure>
+    </dataitem> 
+    
+    <dataitem name="I062/340-6" frn="2806" format="fixed" length="1">
+      <title>Report Type</title>
+      <definition>Report Type</definition>
+      <structure octet="1" frombit="8" tobit="6">
+        <name>TYP-2</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>No detection</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Single PSR detection</value>
+                </entry>
+                <entry>
+                    <key>2</key>
+                    <value>Single SSR detection</value>
+                </entry>
+                <entry>
+                    <key>3</key>
+                    <value>SSR+PSR detection</value>
+                </entry>
+                <entry>
+                    <key>4</key>
+                    <value>Single ModesS All-Call</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>Single ModesS Roll-Call</value>
+                </entry>
+                <entry>
+                    <key>6</key>
+                    <value>ModesS All-Call+PSR</value>
+                </entry>
+                <entry>
+                    <key>5</key>
+                    <value>ModeS Roll-Call+PSR</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure> 
+      <structure octet="1" frombit="5" tobit="5">
+        <name>SIM</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Actual target report</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Simulated target report</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="4" tobit="4">
+        <name>RAB</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Report from target transponder</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Report from field monitor</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+      <structure octet="1" frombit="3" tobit="3">    
+        <name>TST</name>
+        <codes>
+            <messageMap>
+                <entry>
+                    <key>0</key>
+                    <value>Real target report</value>
+                </entry>        
+                <entry>
+                    <key>1</key>
+                    <value>Test target report</value>
+                </entry>
+            </messageMap>
+        </codes>
+      </structure>
+    </dataitem> 
+    
+</category>
