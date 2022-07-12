@@ -10,6 +10,8 @@
 #### Supported ASTERIX Category 
 * Cat 010
 * Cat 011
+* Cat 020
+* Cat 021
 * Cat 034
 * Cat 048
 * Cat 062
