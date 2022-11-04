@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<category no="33" ver="1.17">
+
+    <dataitem name="I033/001" frn="1" format="fixed" length="2">
+      <title>Service Volume Identifier</title>
+      <definition>Identification of the system sending the data</definition>
+      <structure octet="1" frombit="16" tobit="9">
+        <name>SAC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Area Code</desc>
+      </structure>
+      <structure octet="2" frombit="8" tobit="1">
+        <name>SIC</name>
+        <format>uint</format>
+        <unit></unit>
+        <scale>1</scale>
+        <desc>System Identification code</desc>
+      </structure>
+    </dataitem>    
+
+    <dataitem name="I033/002" frn="2" format="fixed" length="1">
+	<title>Version</title>
+	<definition>Version of this Cat 033 format.</definition>
+	<structure octet="1" frombit="6" tobit="6">    
+		<name>VSTATUS</name>
+		<codes>
+			<messageMap>
+				<entry>
+					<key>0</key>
+					<value>OPS_USE</value>
+				</entry>        
+				<entry>
+					<key>1</key>
+					<value>EXPERIMENTAL_USE</value>
+				</entry>
+			</messageMap>
+		</codes>
+	</structure>
+	<structure octet="1" frombit="5" tobit="1">
+		<name>VERSION</name>
+		<format>uint</format>
+		<unit></unit>
+		<scale>1</scale>
+		<desc></desc>
+	</structure>
+    </dataitem>  
+
+	<dataitem name="I033/003" frn="3" format="fixed" length="1">
+		<title>Link Technology Indicator</title>
+		<definition>Used to specify the data link or link(s) to which the Target Report is applicable</definition>
+		<structure octet="1" frombit="8" tobit="1">
+			<name>LTINDICATOR</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/004" frn="4" format="fixed" length="4">
+		<title>Time of Applicability</title>
+		<definition>Time at which the target position is expected to be an accurate estimate of the true target state vector</definition>
+		<structure octet="1" frombit="32" tobit="1">
+			<name>TOA</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/005" frn="5" format="fixed" length="4">
+		<title>Target Address</title>
+		<definition>Target Address</definition>
+		<structure octet="1" frombit="32" tobit="25">
+			<name>TARGET_ADDRESS_QUAL</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="24" tobit="1">
+			<name>TARGET_ADDRESS</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/006" frn="6" format="fixed" length="3">
+		<title>Integrity and Accuracy Parameters </title>
+		<definition>Integrity and Accuracy Parameters </definition>
+		<structure octet="1" frombit="24" tobit="1">
+			<name>INTEGRITY_ACCURACY_PARAM</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/007" frn="7" format="fixed" length="6">
+		<title>Latitude and Longitude</title>
+		<definition>Latitude and Longitude</definition>
+		<structure octet="1" frombit="48" tobit="25">
+			<name>LATITUDE</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="2" frombit="24" tobit="1">
+			<name>LONGITUDE</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/008" frn="8" format="fixed" length="2">
+		<title>Pressure Altitude</title>
+		<definition>Pressure Altitude</definition>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>PRESSURE_AND_ALTITUDE</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/009" frn="9" format="fixed" length="5">
+		<title>Airborne Velocity</title>
+		<definition>Airborne Velocity</definition>
+		
+		<structure octet="1" frombit="38" tobit="38">
+			<name>AB_VELO_SCALE_FACTOR</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="37" tobit="37">
+			<name>AB_VELO_NS_DIRECTION</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="36" tobit="25">
+			<name>AB_VELO_NS_VELOCITY</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+
+		<structure octet="1" frombit="24" tobit="24">
+			<name>AB_VELO_EW_DIRECTION</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="23" tobit="12">
+			<name>AB_VELO_EW_VELOCITY</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+
+	</dataitem>  
+
+	<dataitem name="I033/010" frn="10" format="fixed" length="4">
+		<title>Surface Velocity</title>
+		<definition>Surface Velocity</definition>
+		<structure octet="1" frombit="32" tobit="17">
+			<name>SURFACE_VELOCITY1</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>SURFACE_VELOCITY2</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/011" frn="11" format="fixed" length="2">
+		<title>Mode 3/A Code</title>
+		<definition>Mode 3/A Code</definition>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>MODE3_BYTES</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/012" frn="12" format="fixed" length="6">
+		<title>Target Identification</title>
+		<definition>Target Identification</definition>
+		<structure octet="1" frombit="48" tobit="1">
+			<name>TARGET_ID</name>
+			<format>icaocode</format>
+			<unit></unit>
+			<scale></scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/013" frn="13" format="fixed" length="1">
+		<title>Emitter Category</title>
+		<definition>Emitter Category</definition>
+		<structure octet="1" frombit="8" tobit="1">
+			<name>EMITTER_CATEGORY</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/014" frn="14" format="fixed" length="1">
+		<title>Target Status</title>
+		<definition>Target Status</definition>
+		<structure octet="1" frombit="8" tobit="1">
+			<name>NOT_USED_14</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+	
+	<dataitem name="I033/015" frn="15" format="fixed" length="2">
+		<title>Geometric Altitude</title>
+		<definition>Geometric Altitude</definition>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>GEOMETRIC_ALTITUDE</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/016" frn="16" format="fixed" length="2">
+		<title>Modes and Codes</title>
+		<definition>Modes and Codes</definition>
+		<structure octet="1" frombit="8" tobit="1">
+			<name>NOT_USED_16</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/017" frn="17" format="fixed" length="6">
+		<title>TCAS RA Messages</title>
+		<definition>TCAS RA Messages</definition>
+		<structure octet="1" frombit="48" tobit="17">
+			<name>NOT_USED_17_1</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale></scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>NOT_USED_17_2</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/018" frn="18" format="fixed" length="4">
+		<title>Time of Message Reception</title>
+		<definition>Time of Message Reception</definition>
+		<structure octet="1" frombit="32" tobit="17">
+			<name>TOMR</name>
+			<format>int</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>
+	
+	<dataitem name="I033/019" frn="19" format="fixed" length="1">
+		<title>GPS Antenna Offset</title>
+		<definition>GPS Antenna Offset</definition>
+		<structure octet="1" frombit="8" tobit="1">
+			<name>ANTENNA_OFFSET</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+	
+	<dataitem name="I033/020" frn="20" format="fixed" length="5">
+		<title>Target State Data</title>
+		<definition>Target State Data</definition>
+		<structure octet="1" frombit="40" tobit="17">
+			<name>TARGET_STATE1</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>TARGET_STATE2</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/021" frn="21" format="fixed" length="2">
+		<title>ADS-B Data Quality Parameters</title>
+		<definition>ADS-B Data Quality Parameters</definition>
+		<structure octet="1" frombit="16" tobit="1">
+			<name>QUALITY_PARAM</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/022" frn="22" format="fixed" length="3">
+		<title>Data Source Qualifier</title>
+		<definition>Data Source Qualifier</definition>
+		<structure octet="1" frombit="24" tobit="1">
+			<name>SOURCE_QUALIFIER</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/023" frn="23" format="fixed" length="3">
+		<title>Report Identifier</title>
+		<definition>Report Identifier</definition>
+		<structure octet="1" frombit="24" tobit="1">
+			<name>REPORT_ID</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+	<dataitem name="I033/024" frn="24" format="fixed" length="3">
+		<title>Time of Origination</title>
+		<definition>Time of Origination</definition>
+		<structure octet="1" frombit="24" tobit="1">
+			<name>TIME_OF_ORIGINATION</name>
+			<format>uint</format>
+			<unit></unit>
+			<scale>1</scale>
+			<desc></desc>
+		</structure>
+	</dataitem>  
+
+</category>

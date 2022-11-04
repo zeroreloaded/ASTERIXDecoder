@@ -20,9 +20,10 @@
 <TargetAsterix>
 	<Asterix category="10" file="spec/asterix_cat010.xml" />
     <Asterix category="11" file="spec/asterix_cat011.xml" />
-    <Asterix category="62" file="spec/asterix_cat062.xml" />  
+    <Asterix category="20" file="spec/asterix_cat020.xml" />
+    <Asterix category="21" file="spec/asterix_cat021.xml" />
+    <Asterix category="33" file="spec/asterix_cat033.xml" />  
     <Asterix category="34" file="spec/asterix_cat034.xml" />  
     <Asterix category="48" file="spec/asterix_cat048.xml" />  
-    <Asterix category="21" file="spec/asterix_cat021.xml" />
-    <Asterix category="20" file="spec/asterix_cat020.xml" />
+    <Asterix category="62" file="spec/asterix_cat062.xml" />  
 </TargetAsterix>
