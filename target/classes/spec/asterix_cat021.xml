@@ -1047,7 +1047,7 @@
     </dataitem>
 
     <dataitem name="I021/155" frn="24" format="fixed" length="2">
-      <title>Barometic Vertical Rate</title>
+      <title>Barometric Vertical Rate</title>
       <definition></definition>
       <structure octet="1" frombit="16" tobit="16">    
         <name>RE</name>
@@ -1065,7 +1065,7 @@
         </codes>
       </structure>
       <structure octet="1" frombit="15" tobit="1">
-        <name>BarometicVerticatRate</name>
+        <name>BarometricVerticalRate</name>
         <format>uint</format>
         <unit>feet/minute</unit>
         <scale>6.25</scale>
